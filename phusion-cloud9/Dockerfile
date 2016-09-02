@@ -4,7 +4,9 @@ RUN \
 # Install dependencies
   curl -L https://deb.nodesource.com/setup_6.x | bash \
   && export DEBIAN_FRONTEND=noninteractive && apt update && apt -y upgrade \
-  && apt install -y nodejs build-essential python git \
+  && apt install -y nodejs build-essential python git sudo incron \
+  && echo root | tee /etc/incron.allow \
+  && echo "/var/www/html IN_CREATE chown $MYUSER:$MYGROUP \$@/\$#" | tee /var/spool/incron/root \
 
 # Install cloud9 and ssh workspace
   && git clone git://github.com/c9/core.git /cloud9 && /cloud9/scripts/install-sdk.sh \

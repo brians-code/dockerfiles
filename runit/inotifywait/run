@@ -1,0 +1,2 @@
+#!/bin/sh
+exec inotifywait -m -r /var/www/html -e create --format '%w%f' | while read f; do chown 1000:www-data $f; done

@@ -3,7 +3,7 @@ RUN \
 
 # Install php7
   export DEBIAN_FRONTEND=noninteractive && apt update && apt upgrade -y \
-  && apt install -y php7.0* php-pear libapache2-mod-php7.0 \
+  && apt install -y php7.0* php-pear php-xdebug libapache2-mod-php7.0 \
   
 # Cleanup
   && apt -y purge --auto-remove php7.0-snmp \
