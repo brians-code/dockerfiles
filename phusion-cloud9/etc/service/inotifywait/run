@@ -1,0 +1,3 @@
+#!/bin/sh
+WDIR="/var/www/html"
+exec /usr/bin/inotifywait -m -r $WDIR -e create --format '%w%f' | while read f; do chown $(stat -c '%u' $WDIR):$(stat -c '%g' $WDIR) $f; done

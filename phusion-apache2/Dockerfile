@@ -2,8 +2,8 @@ FROM phusion/baseimage
 RUN \
 
 # Install apache2
-  export DEBIAN_FRONTEND=noninteractive && apt update && apt upgrade -y \
-  && apt install -y apache2 \
+  export DEBIAN_FRONTEND=noninteractive && apt -y update && apt -y upgrade \
+  && apt -y install apache2 \
 
 # Cleanup
   && apt -y autoremove && apt -y autoclean && apt -y clean \
