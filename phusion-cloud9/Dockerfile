@@ -14,7 +14,7 @@ RUN \
   && apt -y purge --auto-remove build-essential python git \
   && apt -y autoremove && apt -y autoclean && apt -y clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/www/html/* ./setup_6.x \
-  && npm cache clean \
+  && npm cache clean
 
 # Add runit services
 COPY ./etc/service/ /etc/service/
